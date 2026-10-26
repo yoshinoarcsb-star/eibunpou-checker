@@ -139,7 +139,7 @@ h2{font-size:1.05rem;margin:22px 0 10px;padding-left:10px;border-left:5px solid 
 </div>
 </main>
 <script>
-const CATS=["文の基本","時制","助動詞","疑問文","不定詞・動名詞","比較","受け身","接続詞・関係代名詞","仮定法・その他","前置詞","難問","文型","It構文","分詞・関係詞","接続詞構文","完了の応用","比較構文"];
+const CATS=["文の基本","時制","助動詞","疑問文","不定詞・動名詞","比較","受け身","接続詞・関係代名詞","仮定法・その他","前置詞","難問","文型","It構文","分詞・関係詞","接続詞構文","完了の応用","比較構文","語順","形容詞・副詞","語の使い分け","会話表現","数量・代名詞","文脈判定"];
 // P：[分類, 解説, [[正しい文, 誤りの文], …]]（各組から〇・×の2問を作る）
 const P=[
 [0,"三単現：主語が三人称単数の現在形では、動詞に s を付ける。",[["He plays tennis.","He play tennis."],["My sister likes music.","My sister like music."]]],
@@ -171,15 +171,15 @@ const P=[
 [4,"疑問詞 ＋ to ～、too ～ to … では to を忘れない。",[["I know how to swim.","I know how swim."],["I am too tired to walk.","I am too tired walk."]]],
 [5,"短い語は -er ＋ than、長い語は more ＋ 原級 ＋ than。",[["He is taller than I.","He is more tall than I."],["This book is more interesting than that one.","This book is interestinger than that one."]]],
 [5,"good / well は better – best と不規則に変化する。",[["This is better than that.","This is more good than that."],["She is the best singer.","She is the goodest singer."]]],
-[5,"最上級の範囲は、集まりなら in、複数を表す語なら of。",[["He is the tallest in my class.","He is the tallest of my class."],["She is the oldest of the three.","She is the oldest in the three."]]],
+[5,"最上級の「～の中で」は、複数を表す語（the three / all the ～）には of を使い、in は使わない。",[["He is the tallest of the boys.","He is the tallest in the boys."],["She is the oldest of the three.","She is the oldest in the three."]]],
 [5,"同等比較は as ＋ 原級 ＋ as（比較級にしない）。",[["He is as tall as I.","He is as taller as I."],["She is not as old as Ken.","She is not as older as Ken."]]],
 [6,"受け身は be動詞 ＋ 過去分詞（過去形ではない）。",[["The window was broken by him.","The window was broke by him."],["This cake was made by my mother.","This cake was make by my mother."]]],
 [6,"受け身の文には be動詞が必要。「～される」は be ＋ 過去分詞。",[["English is spoken in Canada.","English speaks in Canada."],["Is English spoken here?","Does English spoken here?"]]],
 [6,"受け身の否定・疑問は be動詞を使う（do / did は使わない）。",[["The door was not opened.","The door didn’t opened."],["Was the window broken?","Did the window broken?"]]],
-[7,"人を説明する関係代名詞は who、物は which / that。",[["The man who lives next door is kind.","The man which lives next door is kind."],["This is the book that I bought.","This is the book who I bought."]]],
+[7,"人は who、物は which / that。関係代名詞のあとに he / she などの主語を重ねない。",[["The man who lives next door is kind.","The man who he lives next door is kind."],["This is the book that I bought.","This is the book who I bought."]]],
 [7,"if / when の中は、未来のことでも現在形にする。",[["If it rains, I will stay home.","If it will rain, I will stay home."],["When I get home, I will call you.","When I will get home, I will call you."]]],
 [7,"because のあとは「主語 ＋ 動詞」。名詞が続くときは because of。",[["I was tired because I ran.","I was tired because of I ran."],["I stayed home because it rained.","I stayed home because of it rained."]]],
-[8,"仮定法では、I のあとでも were を使う。",[["If I were a bird, I would fly.","If I was a bird, I would fly."],["I wish I were a bird.","I wish I am a bird."]]],
+[8,"仮定法の If ～ のあとの主節は would ＋ 原形。I wish のあとは過去形（were など）。",[["If I were a bird, I would fly.","If I were a bird, I will fly."],["I wish I were a bird.","I wish I am a bird."]]],
 [8,"感嘆文は What a ＋ 名詞 / How ＋ 形容詞。",[["What a nice dog!","How a nice dog!"],["How cute!","What cute!"]]]
 ];
 const X=[
@@ -212,15 +212,15 @@ const X=[
 [["Do you know how to cook?","Do you know how cook?"],["He is too young to drive.","He is too young drive."]],
 [["This bag is cheaper than that one.","This bag is more cheap than that one."],["She is more famous than Ken.","She is famouser than Ken."]],
 [["He is a better player than I.","He is a gooder player than I."],["This is the best book.","This is the most good book."]],
-[["She is the tallest in her family.","She is the tallest of her family."],["Ken is the youngest of the four.","Ken is the youngest in the four."]],
+[["Ken is the youngest of all the students.","Ken is the youngest in all the students."],["Ken is the youngest of the four.","Ken is the youngest in the four."]],
 [["I am as busy as you.","I am as busier as you."],["This is as good as that.","This is as better as that."]],
 [["The room was cleaned by Ken.","The room was clean by Ken."],["The letter was written by her.","The letter was wrote by her."]],
 [["Soccer is played in many countries.","Soccer plays in many countries."],["Is French spoken in Canada?","Does French spoken in Canada?"]],
 [["The car was not washed.","The car didn’t washed."],["Is this song loved by many people?","Does this song loved by many people?"]],
-[["The girl who is singing is my sister.","The girl which is singing is my sister."],["This is a pen that I use every day.","This is a pen who I use every day."]],
+[["The girl who is singing is my sister.","The girl who she is singing is my sister."],["This is a pen that I use every day.","This is a pen who I use every day."]],
 [["If it is sunny, we will play tennis.","If it will be sunny, we will play tennis."],["I will call you when I arrive.","I will call you when I will arrive."]],
 [["I was happy because I won.","I was happy because of I won."],["She was late because the bus was slow.","She was late because of the bus was slow."]],
-[["If I were rich, I would buy a house.","If I was rich, I would buy a house."],["I wish I were taller.","I wish I am taller."]],
+[["If I were rich, I would buy a house.","If I were rich, I will buy a house."],["I wish I were taller.","I wish I am taller."]],
 [["What a beautiful flower!","How a beautiful flower!"],["How fast he runs!","What fast he runs!"]]
 ];
 P.forEach((p,k)=>p[2].push(...X[k]));
@@ -254,15 +254,15 @@ const X2=[
 ["She taught me how to swim.","She taught me how swim."],
 ["My bag is bigger than yours.","My bag is more big than yours."],
 ["Her English is better than mine.","Her English is more good than mine."],
-["He is the fastest in our team.","He is the fastest of our team."],
+["Mari is the fastest of the five.","Mari is the fastest in the five."],
 ["She is as old as I.","She is as older as I."],
 ["The song was sung by her.","The song was sang by her."],
 ["This book is read by many people.","This book reads by many people."],
 ["The letter was not sent.","The letter didn’t sent."],
-["I have a friend who plays the piano.","I have a friend which plays the piano."],
+["I have a friend who plays the piano.","I have a friend who he plays the piano."],
 ["If you study hard, you will pass.","If you will study hard, you will pass."],
 ["I stayed home because I was sick.","I stayed home because of I was sick."],
-["If I were you, I would go.","If I was you, I would go."],
+["If I were you, I would go.","If I were you, I will go."],
 ["How beautiful it is!","What beautiful it is!"]
 ];
 P.forEach((p,k)=>p[2].push(X2[k]));
@@ -296,15 +296,15 @@ const X3=[
 ["I don’t know what to do.","I don’t know what do."],
 ["Ken is older than Mari.","Ken is more old than Mari."],
 ["This is the best day of my life.","This is the goodest day of my life."],
-["Mt. Fuji is the highest mountain in Japan.","Mt. Fuji is the highest mountain of Japan."],
+["Mt. Fuji is the highest of all the mountains.","Mt. Fuji is the highest in all the mountains."],
 ["This room is as large as that one.","This room is as larger as that one."],
 ["The cake was eaten by the kids.","The cake was ate by the kids."],
 ["Chinese is studied by many students.","Chinese studies by many students."],
 ["The room was not cleaned.","The room didn’t cleaned."],
-["I know a boy who can run fast.","I know a boy which can run fast."],
+["I know a boy who can run fast.","I know a boy who he can run fast."],
 ["If it rains tomorrow, I will stay home.","If it will rain tomorrow, I will stay home."],
 ["I went to bed early because I was tired.","I went to bed early because of I was tired."],
-["If I were you, I wouldn’t go.","If I was you, I wouldn’t go."],
+["If I were you, I wouldn’t go.","If I were you, I won’t go."],
 ["What a big house!","How a big house!"]
 ];
 P.forEach((p,k)=>p[2].push(X3[k]));
@@ -329,17 +329,17 @@ const H=[
 H.forEach(h=>{const p=[h[0],h[1],h[2]];p.g=h[3];P.push(p)});
 const H2=[
 [9,"時刻は at、曜日・日付は on、月・年・季節は in。",[["I get up at seven.","I get up in seven."],["We have a test on Monday.","We have a test in Monday."],["My birthday is in May.","My birthday is on May."]],1],
-[9,"表面に接しているときは on、中にあるときは in、地点は at。",[["She lives in Osaka.","She lives at Osaka."],["The picture is on the wall.","The picture is in the wall."],["Please look at the picture.","Please look in the picture."]],1],
+[9,"表面に接しているときは on、中にあるときは in、地点は at。",[["She lives in Osaka.","She lives at Osaka."],["There is a cup on the table.","There is a cup in the table."],["Please look at the picture.","Please look the picture."]],1],
 [9,"交通手段は by（冠詞なし）、道具は with を使う。",[["I go to school by bike.","I go to school by a bike."],["She writes with a pen.","She writes by a pen."],["We went there by bus.","We went there with bus."]],1],
-[9,"期間の長さは for、「～の間」の出来事は during を使う。",[["I studied for two hours.","I studied during two hours."],["I slept during the movie.","I slept for the movie."],["It rained during the night.","It rained for the night."]],2],
+[9,"期間の長さは for、「～の間」の出来事は during を使う。",[["I studied for two hours.","I studied during two hours."],["I slept during the movie.","I slept for the movie."],["It rained during the night.","It rained while the night."]],2],
 [9,"前置詞のあとの代名詞は目的格（me, him, her, them など）。",[["Come with me.","Come with I."],["This is for him.","This is for he."],["Look at them.","Look at they."]],2],
 [9,"前置詞のあとの動詞は動名詞（ing形）にする。",[["Thank you for helping me.","Thank you for help me."],["He left without saying goodbye.","He left without say goodbye."],["I am good at singing.","I am good at sing."]],2],
 [9,"look at / listen to / wait for など、動詞とセットの前置詞が必要。",[["Listen to the teacher.","Listen the teacher."],["I’m waiting for the bus.","I’m waiting the bus."],["Look at the board.","Look the board."]],2],
-[9,"be interested in / be afraid of / be good at など、形容詞ごとに前置詞が決まっている。",[["I am interested in music.","I am interested at music."],["She is afraid of dogs.","She is afraid to dogs."],["He is good at math.","He is good in math."]],2],
+[9,"be interested in / be afraid of / be good at など、形容詞ごとに前置詞が決まっている。",[["I am interested in music.","I am interested at music."],["She is afraid of dogs.","She is afraid to dogs."],["He is good at math.","He is good on math."]],2],
 [10,"by は期限（～までに）、until は継続（～までずっと）。",[["I have to finish this by Friday.","I have to finish this until Friday."],["Please stay here until I come back.","Please stay here by I come back."]],2],
 [10,"期間の長さ（数字）は for、特定の期間・出来事は during。",[["I lived in Osaka for five years.","I lived in Osaka during five years."],["He fell asleep during the class.","He fell asleep for the class."]],2],
-[10,"受け身でも by 以外の前置詞をとる表現がある（be filled with ～ など）。",[["The room was filled with people.","The room was filled by people."]],3],
-[10,"未来の「～後に」は in、after は「～のあとで」。",[["I will be back in an hour.","I will be back after an hour."],["We will meet in three days.","We will meet after three days."]],2],
+[10,"受け身でも by 以外の前置詞をとる表現がある（be filled with ～ など）。",[["The room was filled with people.","The room was filled of people."]],3],
+[10,"未来の「今から～後」は in ＋ 期間。after ～ later のように重ねない。",[["I will be back in an hour.","I will be back after an hour later."],["We will meet in three days.","We will meet after three days later."]],2],
 [10,"arrive は at / in を使う。home は副詞なので to は不要。",[["I arrived at the station at noon.","I arrived to the station at noon."],["He got home early.","He got to home early."]],2],
 [10,"home / here / there の前に to は付けない。",[["She went home early.","She went to home early."],["I want to go there.","I want to go to there."]],2],
 [10,"never は否定語なので haven’t と重ねない（二重否定）。",[["I have never seen such a big dog.","I haven’t never seen such a big dog."]],3],
@@ -357,8 +357,8 @@ const H2=[
 [10,"Let’s ～ には shall we?、命令文には will you? を付ける。",[["Let’s go, shall we?","Let’s go, don’t we?"],["Open the window, will you?","Open the window, do you?"]],3],
 [10,"enough は形容詞のうしろに置く（形容詞 ＋ enough）。",[["He is tall enough to reach the shelf.","He is enough tall to reach the shelf."],["I am old enough to drive.","I am enough old to drive."]],2],
 [10,"so ＋ 形容詞、such ＋ (a) ＋ 名詞。",[["It was such a hot day that we stayed home.","It was so a hot day that we stayed home."],["She is so kind that everyone likes her.","She is such kind that everyone likes her."]],3],
-[10,"some は肯定文、any は否定文・疑問文。相手にすすめるときは some を使う。",[["I don’t have any pens.","I don’t have some pens."],["Would you like some tea?","Would you like any tea?"]],2],
-[10,"forget / remember ＋ to ～（これから・し忘れ）、～ing（したこと）。",[["I forgot to bring my book, so I couldn’t read it.","I forgot bringing my book, so I couldn’t read it."],["I remember seeing him in Kyoto.","I remember to see him in Kyoto."]],3],
+[10,"some は肯定文、any は否定文・疑問文で使う。",[["I don’t have any pens.","I don’t have some pens."],["She doesn’t have any friends.","She doesn’t have some friends."]],2],
+[10,"forget / remember ＋ to ～（これから・し忘れ）、～ing（したこと）。",[["I forgot to bring my book, so I couldn’t read it.","I forgot bringing my book, so I couldn’t read it."],["I remember seeing him in Kyoto last year.","I remember to see him in Kyoto last year."]],3],
 [10,"had better ＋ 原形、would like to ＋ 原形（to を重ねない）。",[["You had better go to bed.","You had better to go to bed."],["I would like to go there.","I would like go there."]],3]
 ];
 H2.forEach(h=>{const p=[h[0],h[1],h[2]];p.g=h[3];P.push(p)});
@@ -368,21 +368,21 @@ const H3=[
 [0,"母音で始まる語の前は an、それ以外は a。",[["I have an apple.","I have a apple."],["She is an English teacher.","She is a English teacher."]],1],
 [0,"名詞の複数形は語尾で決まる（child → children、box → boxes）。",[["I have two children.","I have two childs."],["There are many boxes.","There are many boxs."]],1],
 [0,"water / advice など数えられない名詞は複数形にしない。",[["I need some water.","I need some waters."],["She gave me good advice.","She gave me good advices."]],2],
-[3,"Whose は「だれの」、Which は「どちら」、Who は「だれ」。",[["Whose bag is this?","Who bag is this?"],["Which do you like, tea or coffee?","What do you like, tea or coffee?"]],1],
+[3,"Whose は「だれの」、Which は「どちら」、Who は「だれ」。",[["Whose bag is this?","Who bag is this?"],["Which do you like, tea or coffee?","Which do you like, tea and coffee?"]],1],
 [2,"May I ～? は助動詞を文頭に出す。do は使わない。",[["May I come in?","Do I may come in?"],["Shall I open the window?","Shall you open the window?"]],2],
 [4,"不定詞・動名詞は主語にもなる（to ＋ 原形 / ing形）。",[["To read books is fun.","To reading books is fun."],["Playing tennis is fun.","Play tennis is fun."]],2],
 [5,"語尾の綴り：big → bigger、happy → happier。",[["He is bigger than I.","He is biger than I."],["She is happier than her sister.","She is happyer than her sister."]],2],
 [6,"受け身の疑問詞疑問文：疑問詞 ＋ be動詞 ＋ 主語 ＋ 過去分詞。",[["Where was this picture taken?","Where this picture was taken?"],["What language is spoken in Brazil?","What language does spoken in Brazil?"]],3],
 [7,"命令文, or ～（さもないと）／命令文, and ～（そうすれば）。",[["Hurry up, or you will be late.","Hurry up, and you will be late."],["Study hard, and you will pass.","Study hard, or you will pass."]],2],
 [9,"between は2者の間、among は3者以上の間。",[["Ken sat between Mari and Yuki.","Ken sat among Mari and Yuki."],["He is popular among students.","He is popular between students."]],2],
-[9,"朝・昼・晩は in the morning / afternoon / evening。",[["I get up in the morning.","I get up at the morning."],["We have dinner in the evening.","We have dinner on the evening."]],1],
+[9,"朝・昼・晩は in the morning / afternoon / evening。",[["I get up in the morning.","I get up at the morning."],["We have dinner in the evening.","We have dinner in evening."]],1],
 [11,"SVC：look / sound / become のあとは形容詞（副詞は不可）。",[["She looks happy.","She looks happily."],["That sounds great.","That sounds greatly."],["He became tired.","He became tiredly."]],2],
 [11,"SVOO：give / show / send ＋ 人 ＋ 物。人の前に to は入れない。",[["He gave me a present.","He gave to me a present."],["She showed us her photos.","She showed to us her photos."],["I sent him a letter.","I sent to him a letter."]],2],
 [11,"make / buy / cook は、書きかえるとき for を使う（to ではない）。",[["I made my mother a cake.","I made a cake to my mother."],["He bought me a book.","He bought a book to me."]],3],
 [11,"SVOC：make / call ＋ O ＋ C（C は形容詞・名詞）。",[["This song makes me happy.","This song makes me happily."],["We call the dog Pochi.","We call to the dog Pochi."],["The news made her sad.","The news made her sadly."]],3],
 [12,"It is ＋ 形容詞 ＋ for 人 ＋ to ～（状況・難易など）。",[["It is important for us to study.","It is important of us to study."],["It is easy for me to swim.","It is easy to me to swim."]],2],
 [12,"人の性質を表す形容詞（kind, nice, careless）は of ＋ 人。",[["It was kind of you to help me.","It was kind for you to help me."],["It is careless of him to forget it.","It is careless for him to forget it."]],3],
-[12,"It takes ＋ 時間 ＋ to ～（～するのに…かかる）。",[["It takes two hours to get there.","It takes two hours getting there."],["It took me ten minutes to walk home.","It took me ten minutes walking home."]],3],
+[12,"It takes ＋ 時間 ＋ to ～（～するのに…かかる）。",[["It takes two hours to get there.","It takes two hours get there."],["It took me ten minutes to walk home.","It took me ten minutes walk home."]],3],
 [12,"形式主語 It のあとの真主語は to 不定詞（to ＋ 原形）。",[["It is fun to play with dogs.","It is fun play with dogs."],["It is hard to get up early.","It is hard get up early."]],2],
 [13,"現在分詞の後置修飾：名詞 ＋ ing形（～している）。",[["The girl standing there is my sister.","The girl stand there is my sister."],["Look at the boy running in the park.","Look at the boy run in the park."]],3],
 [13,"過去分詞の後置修飾：名詞 ＋ 過去分詞（～された）。",[["This is a book written in English.","This is a book writing in English."],["I have a bag made in Italy.","I have a bag making in Italy."]],3],
@@ -390,16 +390,16 @@ const H3=[
 [13,"目的格の関係代名詞のあとに、同じ目的語（it / him）を重ねない。",[["The song that she sang was beautiful.","The song that she sang it was beautiful."],["The man I met was kind.","The man I met him was kind."]],3],
 [13,"whose は「～の」を表す関係代名詞。あとに名詞が続く。",[["I know a girl whose father is a doctor.","I know a girl who father is a doctor."]],3],
 [14,"both A and B は複数扱い。",[["Both Ken and Mari like music.","Both Ken and Mari likes music."],["Both my parents are teachers.","Both my parents is teachers."]],3],
-[14,"either A or B / neither A nor B。or と nor を混ぜない。",[["You can have either tea or coffee.","You can have either tea and coffee."],["He likes neither tea nor coffee.","He likes neither tea or coffee."]],3],
+[14,"either A or B / neither A nor B。or と nor を混ぜない。",[["You can have either tea or coffee.","You can have either tea and coffee."],["He likes neither tea nor coffee.","He likes neither tea and coffee."]],3],
 [14,"「～かどうか」は whether / if。that とは使い分ける。",[["I don’t know whether he will come or not.","I don’t know that he will come or not."],["Ask her whether she likes it.","Ask her that she likes it."]],3],
 [14,"not only A but also B（A だけでなく B も）。",[["She is not only kind but also smart.","She is not only kind and also smart."]],3],
 [15,"現在完了進行形：have / has been ＋ ing形（ずっと～している）。",[["I have been studying for two hours.","I have studying for two hours."],["She has been waiting since noon.","She has been wait since noon."]],3],
 [15,"現在完了の疑問は Have / Has を文頭に、否定は have / has not。",[["Have you finished your homework yet?","Do you have finished your homework yet?"],["He hasn’t eaten lunch yet.","He doesn’t has eaten lunch yet."]],3],
 [15,"since のあとは過去の起点（時点・過去形の文）、for のあとは期間。",[["I have known him since I was a child.","I have known him since I am a child."],["We have been friends for ten years.","We have been friends since ten years."]],3],
-[15,"How long ～? は現在完了で「いつから・どのくらい」をたずねる。",[["How long have you lived here?","How long do you live here?"],["How many times have you been to Kyoto?","How many times did you been to Kyoto?"]],3],
+[15,"How long ～? は現在完了で「いつから・どのくらい」をたずねる。疑問詞のあとは have ＋ 主語。",[["How long have you lived here?","How long you have lived here?"],["How many times have you been to Kyoto?","How many times did you been to Kyoto?"]],3],
 [16,"like ～ better（～のほうが好き）。more better とは言わない。",[["Which do you like better, tea or coffee?","Which do you like more better, tea or coffee?"],["I like summer better than winter.","I like summer more better than winter."]],2],
 [16,"the same as ～（～と同じ）、different from ～（～と違う）。",[["My bag is the same as yours.","My bag is same as yours."],["This is different from that.","This is difference from that."]],3],
-[16,"2つのうちでは the ＋ 比較級 ＋ of the two（最上級は使わない）。",[["Ken is the taller of the two.","Ken is the tallest of the two."],["This is the better of the two.","This is the best of the two."]],3],
+[16,"2つのうちでは the ＋ 比較級 ＋ of the two。in ではなく of を使う。",[["Ken is the taller of the two.","Ken is the taller in the two."],["This is the better of the two.","This is the better in the two."]],3],
 [16,"比較級 and 比較級（だんだん～）、The ＋ 比較級, the ＋ 比較級（～するほど…）。",[["It is getting warmer and warmer.","It is getting more warm and more warm."],["The more you study, the better you get.","The more you study, the best you get."]],3]
 ];
 H3.forEach(h=>{const p=[h[0],h[1],h[2]];p.g=h[3];P.push(p)});
@@ -410,7 +410,7 @@ const A=[
 ["SVOC",["Don’t leave the door open.","Don’t leave the door openly."]],
 ["It is ＋",["It is necessary for him to go.","It is necessary of him to go."],["It is difficult for me to answer.","It is difficult to me to answer."]],
 ["人の性質",["It was nice of her to call me.","It was nice for her to call me."],["It is rude of you to say that.","It is rude for you to say that."]],
-["It takes",["It takes an hour to get to school.","It takes an hour getting to school."],["How long does it take to cook it?","How long does it take cooking it?"]],
+["It takes",["It takes an hour to get to school.","It takes an hour get to school."],["How long does it take to cook it?","How long does it take cook it?"]],
 ["形式主語",["It is dangerous to swim here.","It is dangerous swim here."],["It is impossible to finish it today.","It is impossible finishing it today."]],
 ["現在分詞",["The woman talking to Ken is my aunt.","The woman talk to Ken is my aunt."],["I saw a dog sleeping under the tree.","I saw a dog sleep under the tree."]],
 ["過去分詞",["This is a letter sent by my uncle.","This is a letter sending by my uncle."],["I like the language spoken in Spain.","I like the language speaking in Spain."]],
@@ -418,16 +418,16 @@ const A=[
 ["目的格の関係代名詞のあと",["The movie we saw yesterday was great.","The movie we saw it yesterday was great."],["Here is the bag which I lost.","Here is the bag which I lost it."]],
 ["whose",["This is the boy whose bag was stolen.","This is the boy who bag was stolen."],["I have a friend whose brother is a pilot.","I have a friend who brother is a pilot."],["She has a dog whose name is Max.","She has a dog that name is Max."]],
 ["both",["Both of us are students.","Both of us is students."],["Both Ken and I want to go.","Both Ken and I wants to go."]],
-["either",["She speaks neither English nor French.","She speaks neither English or French."],["Take either bus or train.","Take either bus and train."]],
+["either",["She speaks neither English nor French.","She speaks neither English and French."],["Take either bus or train.","Take either bus and train."]],
 ["「～かどうか」",["I wonder whether it is true.","I wonder that it is true."],["Tell me whether you are free.","Tell me that you are free or not."]],
 ["not only",["Not only Ken but also Mari came.","Not only Ken and also Mari came."],["She speaks not only English but also French.","She speaks not only English and also French."],["It is not only cold but also windy.","It is not only cold and also windy."]],
 ["現在完了進行形",["It has been raining since morning.","It has raining since morning."],["We have been playing tennis for an hour.","We have been play tennis for an hour."]],
 ["現在完了の疑問",["Has he arrived yet?","Does he has arrived yet?"],["I haven’t seen him since last year.","I don’t have seen him since last year."]],
 ["since のあと",["She has lived here since she was born.","She has lived here since she is born."],["I have been busy for three days.","I have been busy since three days."]],
-["How long",["How long have you studied English?","How long do you study English?"],["How many times have you seen it?","How many times did you seen it?"]],
+["How long",["How long have you studied English?","How long you have studied English?"],["How many times have you seen it?","How many times did you seen it?"]],
 ["like ～",["I like dogs better than cats.","I like dogs more better than cats."],["Which do you like better, summer or winter?","Which do you like more better, summer or winter?"]],
 ["the same",["Ken’s bike is the same as mine.","Ken’s bike is same as mine."],["My opinion is different from yours.","My opinion is different of yours."]],
-["2つのうち",["Mari is the younger of the two.","Mari is the youngest of the two."],["Which is the larger of the two?","Which is the largest of the two?"]],
+["2つのうち",["Mari is the younger of the two.","Mari is the younger in the two."],["Which is the larger of the two?","Which is the larger in the two?"]],
 ["比較級 and",["It is getting colder and colder.","It is getting more cold and more cold."],["The earlier you start, the sooner you finish.","The earlier you start, the soonest you finish."]],
 ["「いつ」",["When did you buy this?","When have you bought this?"]],
 ["think など",["What do you think he wants?","Do you think what he wants?"]],
@@ -441,7 +441,7 @@ const A=[
 ["be known to",["This singer is known to young people.","This singer is known for young people."]],
 ["最上級は the most",["She is the most beautiful girl here.","She is the more beautiful girl here."]],
 ["everyone",["Everybody likes music.","Everybody like music."]],
-["受け身でも by 以外の前置詞",["The glass is filled with milk.","The glass is filled by milk."]],
+["受け身でも by 以外の前置詞",["The glass is filled with milk.","The glass is filled of milk."]],
 ["never は否定語",["She has never been abroad.","She hasn’t never been abroad."]],
 ["受け身でも by 以外を",["I was surprised at his answer.","I was surprised to his answer."]]
 ];
@@ -455,8 +455,8 @@ const H4=[
 [6,"受け身の疑問・否定は be動詞を使う（do / does は使わない）。",[["Was the bag stolen?","Did the bag stolen?"],["The gate is not opened at night.","The gate does not opened at night."]],3],
 [6,"受け身の by のあとの代名詞は目的格（him, them など）。",[["The song was written by him.","The song was written by he."],["The cake was baked by them.","The cake was baked by they."]],3],
 [7,"前置詞つきの関係代名詞の文は、前置詞を文末に残す（前置詞を落とさない）。",[["This is the house I live in.","This is the house I live."],["The girl he talked to is Mari.","The girl he talked is Mari."]],3],
-[7,"and / but / so の使い分け（理由 → so、逆の内容 → but）。",[["I was sick, so I stayed home.","I was sick, but I stayed home."],["It was raining, but we played outside.","It was raining, so we played outside."]],2],
-[7,"so that ～（～するために）：あとに過去の文なら could などを使う。",[["I studied hard so that I could pass.","I studied hard so that I can pass."]],3],
+[7,"and / but / so の使い分け（理由 → so、逆の内容 → but）。",[["The test was easy, so I got a good score.","The test was easy, but I got a good score."],["It was raining, but we played outside.","It was raining, so we played outside."]],2],
+[7,"so that ～（～するために）のあとは「主語 ＋ 助動詞 ＋ 原形」。to や ing形は重ねない。",[["I got up early so that I could catch the train.","I got up early so that I could to catch the train."],["She spoke slowly so that we could understand her.","She spoke slowly so that we could understood her."],["He saved money so that he could buy a bike.","He saved money so that he could buying a bike."]],3],
 [0,"be動詞は主語で形が決まる（I am / you are / he is）。",[["I am a student.","I is a student."],["You are my friend.","You is my friend."],["She is from Osaka.","She are from Osaka."]],1],
 [0,"三単現の -es：go / watch / teach などは es を付ける。",[["He goes to school.","He gos to school."],["She watches TV.","She watchs TV."]],1],
 [0,"動詞の ing 形：run → running、make → making。",[["He is running in the park.","He is runing in the park."],["She is making lunch.","She is makeing lunch."]],1],
@@ -467,6 +467,70 @@ const H4=[
 [0,"my / your など は名詞の前、mine / yours などは単独で使う。",[["This is my bag.","This is mine bag."],["That bag is mine.","That bag is my."]],1]
 ];
 H4.forEach(h=>{const p=[h[0],h[1],h[2]];p.g=h[3];P.push(p)});
+const H5=[
+[4,"hope / decide / plan のあとは不定詞（to ＋ 原形）。",[["I hope to see you again.","I hope seeing you again."],["She decided to study abroad.","She decided studying abroad."],["We plan to visit Kyoto.","We plan visiting Kyoto."]],2],
+[4,"mind / give up / practice のあとは動名詞（ing形）。",[["Do you mind opening the window?","Do you mind to open the window?"],["He gave up smoking.","He gave up to smoke."],["I practice playing the guitar every day.","I practice to play the guitar every day."]],3],
+[4,"stop ＋ ing は「～をやめる」。stop to ～ は「～するために立ち止まる」。",[["It stopped raining, and the sky became clear.","It stopped to rain, and the sky became clear."],["They stopped talking, and the room became quiet.","They stopped to talk, and the room became quiet."],["The baby stopped crying and fell asleep.","The baby stopped to cry and fell asleep."]],3],
+[4,"need / want のあとは不定詞（to ＋ 原形）。",[["I need to buy a new bag.","I need buying a new bag."],["You don’t need to hurry.","You don’t need hurry."],["He wants to go home.","He wants go home."]],2],
+[4,"would like のあとは to ＋ 原形。",[["I’d like to have some tea.","I’d like having some tea."],["Would you like to come?","Would you like come?"],["I would like to thank you.","I would like thanking you."]],2],
+[4,"help ＋ 人 ＋ 原形（to ＋ 原形も可）。ing形にはしない。",[["She helped me carry the bag.","She helped me carrying the bag."],["Can you help me find my key?","Can you help me finding my key?"],["He helped her to cook dinner.","He helped her cooking dinner."]],3],
+[17,"What ＋ 名詞 ＋ do you ～? の語順（名詞は What のすぐあと）。",[["What sport do you like?","What do you like sport?"],["What color do you want?","What do you want color?"],["What subject do you study?","What do you study subject?"]],2],
+[17,"間接疑問文の語順（疑問詞 ＋ 主語 ＋ 動詞）。",[["Please tell me where the station is.","Please tell me where is the station."],["Do you know when the store opens?","Do you know when does the store open?"],["I wonder why he is late.","I wonder why is he late."]],3],
+[17,"Is / Are there ～? の疑問文は be動詞を there の前に出す。",[["Is there a bank near here?","Is a bank there near here?"],["Are there any shops here?","There are any shops here?"],["Is there a cat in the box?","Is a cat there in the box?"]],1],
+[17,"場所・時を表す語句は文末に置く（動詞と目的語の間に入れない）。",[["I play tennis every day.","I play every day tennis."],["She reads books in the library.","She reads in the library books."],["He eats breakfast at seven.","He eats at seven breakfast."]],2],
+[17,"How ＋ 形容詞 ＋ be動詞 ＋ 主語? の語順。",[["How tall is he?","How is he tall?"],["How old are you?","How are you old?"],["How long is the river?","How is the river long?"]],1],
+[18,"動詞を修飾するのは副詞。fast / hard は形のまま、多くは -ly を付ける。",[["He runs fast.","He runs fastly."],["She opened the door quietly.","She opened the door quiet."],["He sings beautifully.","He sings beautiful."]],2],
+[18,"good は形容詞、well は副詞。",[["She sings well.","She sings good."],["He is a good cook.","He is a well cook."],["I can swim well.","I can swim good."]],2],
+[18,"人の気持ちは -ed、物・事がもたらす性質は -ing。",[["I am excited about the game.","I am exciting about the game."],["The movie was boring.","The movie was bored."],["He was tired after the trip.","He was tiring after the trip."]],2],
+[18,"something / anything / nothing は、形容詞をうしろに置く。",[["I want something cold.","I want cold something."],["Is there anything interesting?","Is there interesting anything?"],["She has nothing special to do.","She has special nothing to do."]],3],
+[18,"too は肯定文、either は否定文の文末に置く。",[["I like music, too.","I like music, either."],["I don’t like it, either.","I don’t like it, too."],["I can swim, too.","I can swim, either."]],2],
+[19,"see / hear は自然に入ってくる、look at / listen to は意識して向ける。",[["I heard a strange sound.","I listened a strange sound."],["I can see a bird in the tree.","I can look a bird in the tree."],["Listen to this song.","Hear to this song."]],2],
+[19,"speak は言語、talk は会話、say は言葉、tell は人に伝える。",[["Can you speak English?","Can you say English?"],["We talked about our dreams.","We said about our dreams."],["He told me a funny story.","He said me a funny story."]],2],
+[19,"do は行為・課題、make は作り出す。do one’s best / make a cake。",[["I do my homework after dinner.","I make my homework after dinner."],["She made a cake for him.","She did a cake for him."],["Let’s do our best.","Let’s make our best."]],2],
+[19,"answer / marry / discuss は目的語を直接とる（前置詞は不要）。",[["Please answer my question.","Please answer to my question."],["He married Mari.","He married with Mari."],["We discussed the problem.","We discussed about the problem."]],3],
+[19,"ago は今から見て～前、before は過去・完了のある時点より前。",[["I saw him two days ago.","I saw him before two days."],["I have been there before.","I have been there ago."],["He left a week ago.","He left before a week."]],2],
+[20,"Can you tell me how to ～? のように、疑問詞 ＋ to ＋ 原形を使う。",[["Can you tell me how to get to the station?","Can you tell me how do I get to the station?"],["Could you tell me where to buy tickets?","Could you tell me where do I buy tickets?"],["Do you know what to do?","Do you know what do?"]],3],
+[20,"Why don’t you ～? のあとは原形。How about ～? のあとは ing形。",[["Why don’t you join us?","Why don’t you to join us?"],["How about going shopping?","How about go shopping?"],["What about having lunch together?","What about have lunch together?"]],2],
+[20,"I’d like to ＋ 原形 / I’d like ＋ 名詞。Would you like ＋ 名詞 / to ～?",[["I’d like to try it.","I’d like try it."],["Would you like some coffee?","Would you like to some coffee?"],["I’d like a cup of tea.","I’d like to a cup of tea."]],2],
+[20,"Could you ～? / Shall I ～? / May I ～? のあとは原形。",[["Could you open the door?","Could you opening the door?"],["Shall I carry your bag?","Shall I to carry your bag?"],["May I use your pen?","May I to use your pen?"]],2],
+[22,"Yes / No の答えでは、質問と同じ動詞（be / do / 助動詞）を使う。",[["Do you like cats? — Yes, I do.","Do you like cats? — Yes, I like."],["Is she your sister? — No, she isn’t.","Is she your sister? — No, she doesn’t."],["Can you cook? — Yes, I can.","Can you cook? — Yes, I do."]],1],
+[21,"2つのうち one ～, the other …。another は「別の1つ」。",[["There are two people. One is a student, and the other is a nurse.","There are two people. One is a student, and another is a nurse."],["I have two sisters. One lives in Tokyo, and the other lives in Osaka.","I have two sisters. One lives in Tokyo, and another lives in Osaka."],["Some like tea, and others like coffee.","Some like tea, and other like coffee."]],2],
+[21,"each / every は単数扱い（動詞に s、名詞は単数）。",[["Each student has a desk.","Each students have a desk."],["Every child likes sweets.","Every child like sweets."],["Each of the boys has a ball.","Each of the boys have a ball."]],2],
+[21,"all / most / some of のあとは the / my などを付けた名詞。",[["All of the students were there.","All of students were there."],["Most of the people agree.","Most of people agree."],["Some of my friends play tennis.","Some of friends play tennis."]],2],
+[21,"another ＋ 単数名詞、other ＋ 複数名詞。",[["Please show me another one.","Please show me other one."],["Do you have any other questions?","Do you have another questions?"],["I have no other ideas.","I have no another ideas."]],3],
+[21,"it は1つの物、them / they は複数を指す。",[["I have a dog. It is very cute.","I have a dog. They are very cute."],["I bought two books. I read them yesterday.","I bought two books. I read it yesterday."],["Ken has a cat. He loves it.","Ken has a cat. He loves them."]],1]
+];
+H5.forEach(h=>{const p=[h[0],h[1],h[2]];p.g=h[3];P.push(p)});
+const H6=[
+[2,"be able to は can の言いかえ。be able to のあとは原形で、助動詞とは並べない。",[["I was able to swim when I was five.","I was can swim when I was five."],["She will be able to come.","She will can come."],["Are you able to help me?","Do you able to help me?"]],2],
+[2,"must に過去形はない。過去は had to を使う。",[["She had to go home early.","She musted go home early."],["I had to study last night.","I must studied last night."],["Did you have to wait?","Did you had to wait?"]],2],
+[2,"may be（～かもしれない）と maybe（たぶん）を区別する。",[["You may be right.","You may right."],["He may be at home.","He may at home."],["Maybe she is busy.","May be she is busy."]],3],
+[2,"must は「～にちがいない」の意味もある。あとは原形（be）。",[["He must be tired.","He must is tired."],["That must be true.","That must to be true."],["She cannot be a doctor.","She cannot is a doctor."]],3],
+[2,"助動詞の否定は、助動詞の直後に not を置く。",[["I will not go there.","I not will go there."],["You should not eat too much.","You not should eat too much."],["We must not forget it.","We not must forget it."]],2],
+[1,"主節が過去形で、that 節も過去の時点の話なら、動詞も過去形にする。",[["I thought that he was kind at that time.","I thought that he is kind at that time."],["He said yesterday that he was sick then.","He said yesterday that he is sick then."],["I knew then that she liked music.","I knew then that she likes music."]],3],
+[1,"主節が過去形で、過去の時点の話なら、will は would、can は could にする。",[["He said that he would come the next day.","He said that he will come the next day."],["She said at that time that she could swim.","She said at that time that she can swim."],["I thought it would rain the next day.","I thought it will rain the next day."]],3],
+[1,"now は現在形、ago / last ～ は過去形、「生まれた」は was born。",[["I am studying English now.","I studied English now."],["She was born in 2010.","She is born in 2010."],["We live in Osaka now.","We lived in Osaka now."]],2],
+[19,"before / after / while は、接続詞なら「主語 ＋ 動詞」、前置詞なら名詞や ing形。",[["Wash your hands before eating.","Wash your hands before eat."],["I read a book while I was waiting.","I read a book during I was waiting."],["She called me after she got home.","She called me after got home."]],2],
+[19,"although / though は「主語 ＋ 動詞」、in spite of は名詞。",[["Although he was tired, he kept working.","Although he tired, he kept working."],["In spite of the rain, we went out.","In spite of it rained, we went out."],["Though she is young, she is smart.","Though she young, she is smart."]],3],
+[19,"because / since / although の文に、so / but を重ねない。",[["Because it was raining, we stayed home.","Because it was raining, so we stayed home."],["Since I was busy, I couldn’t come.","Since I was busy, so I couldn’t come."],["Although he is young, he is wise.","Although he is young, but he is wise."]],2],
+[19,"and でつなぐ語は同じ形にそろえる（並列）。",[["I like swimming and running.","I like swimming and run."],["She is kind and smart.","She is kind and smartly."],["He wants to eat and drink.","He wants to eat and drinking."]],2],
+[19,"unless は「もし～でなければ」。あとに not を重ねない。",[["Unless you hurry, you will be late.","Unless you don’t hurry, you will be late."],["I won’t go unless you come.","I won’t go unless you don’t come."],["Don’t go out unless it is necessary.","Don’t go out unless it isn’t necessary."]],3],
+[6,"SVOO の受け身：人を主語にして be given ＋ 物。to は入れない。",[["I was given a pen by my aunt.","I was given to a pen by my aunt."],["He was told the truth.","He was told to the truth."],["We were shown the way.","We were shown to the way."]],3],
+[6,"SVOC の受け身：be called ＋ C。to や as は入れない。",[["This flower is called a rose.","This flower is called to a rose."],["She is called Meg by her friends.","She is called to Meg by her friends."],["The dog was named Pochi.","The dog was named to Pochi."]],3],
+[22,"質問と答えの動詞をそろえる。be動詞と一般動詞を混ぜない。",[["A: Where do you live? B: I live in Osaka.","A: Where do you live? B: I am live in Osaka."],["A: What do you do on Sundays? B: I play soccer.","A: What do you do on Sundays? B: I am play soccer."],["A: Where does she come from? B: She comes from Canada.","A: Where does she come from? B: She come from Canada."]],1],
+[22,"疑問詞の質問には、Yes / No ではなく内容で答える。",[["A: What do you want? B: I want a new bag.","A: What do you want? B: Yes, I do."],["A: Where is the library? B: It is near the station.","A: Where is the library? B: Yes, it is."],["A: Who is that boy? B: He is my brother.","A: Who is that boy? B: Yes, he is."]],1],
+[22,"Have / Has の質問には、have / has で答える。",[["A: Have you ever been to Kyoto? B: Yes, I have.","A: Have you ever been to Kyoto? B: Yes, I did."],["A: Has he finished his homework? B: No, he hasn’t.","A: Has he finished his homework? B: No, he doesn’t."],["A: Have they eaten lunch? B: Yes, they have.","A: Have they eaten lunch? B: Yes, they are."]],3],
+[22,"Did / Were の質問には、did / was / were で答える。",[["A: Did you watch TV last night? B: Yes, I did.","A: Did you watch TV last night? B: Yes, I do."],["A: Did she go to school? B: No, she didn’t.","A: Did she go to school? B: No, she doesn’t."],["A: Were you busy? B: Yes, I was.","A: Were you busy? B: Yes, I did."]],2],
+[22,"Will / Can の質問には、will / can で答える。",[["A: Will you help me? B: Sure, I will.","A: Will you help me? B: Sure, I do."],["A: Can I use your pen? B: Of course, you can.","A: Can I use your pen? B: Of course, I can."],["A: Can you play the piano? B: Yes, I can.","A: Can you play the piano? B: Yes, I play."]],2],
+[22,"How old / What time / What is ～ の質問に合う答え方。",[["A: How old are you? B: I am thirteen.","A: How old are you? B: I have thirteen."],["A: What time is it? B: It is ten o’clock.","A: What time is it? B: I am ten o’clock."],["A: What is your name? B: My name is Ken.","A: What is your name? B: I am name Ken."]],1],
+[22,"前の文の名詞を代名詞で受ける（単数は it / he / she、複数は they / them）。",[["I have two cats. They are cute.","I have two cats. It is cute."],["Ken is my friend. He is kind.","Ken is my friend. She is kind."],["I bought a book. I read it last night.","I bought a book. I read them last night."]],1],
+[22,"前の文が過去なら、つなぐ文も過去形にそろえる。",[["I lost my bag. I looked for it.","I lost my bag. I look for it."],["She came home. She took a bath.","She came home. She takes a bath."],["We went to the park. We played soccer.","We went to the park. We play soccer."]],2],
+[22,"現在完了のあとは、今の状態を現在形で続ける。",[["I have lost my key. I can’t open the door.","I have lost my key. I couldn’t open the door."],["He has gone to Paris. He isn’t here now.","He has gone to Paris. He wasn’t here now."],["She has finished her work. She is free now.","She has finished her work. She was free now."]],3],
+[22,"so（だから）と but（しかし）の使い分け。",[["It was cold, so I wore a coat.","It was cold, but I wore a coat."],["He studied hard, but he failed.","He studied hard, so he failed."],["She was tired, but she kept working.","She was tired, so she kept working."]],2],
+[22,"this / that は前の内容を受け、単数の動詞を使う。",[["I passed the test. That made me happy.","I passed the test. These made me happy."],["It is raining. That is a problem.","It is raining. Those is a problem."],["She helped me. I thank her for that.","She helped me. I thank her for those."]],2],
+[22,"最初は a ～、2回目からは the ～ で受ける。",[["I saw a dog. The dog was big.","I saw a dog. A dog was big."],["She bought a bag. The bag was expensive.","She bought a bag. A bag was expensive."],["There is a cat. The cat is white.","There is a cat. A cat is white."]],2]
+];
+H6.forEach(h=>{const p=[h[0],h[1],h[2]];p.g=h[3];P.push(p)});
 const Q=P.flatMap(p=>p[2].flatMap(([c,w])=>[[p[0],c,1,c,p[1],p.g],[p[0],w,0,c,p[1],p.g]]));
 
 const $=id=>document.getElementById(id);
@@ -480,7 +544,7 @@ const count=()=>{const n=pool().length;$("cnt").textContent=n;$("go").disabled=n
 function replay(el,c){el.classList.remove(c);void el.offsetWidth;el.classList.add(c)}
 function show(id){["start","play","end"].forEach(x=>$(x).hidden=x!==id);$("mini").hidden=id==="start";const e=$(id);if(id!=="play")replay(e,"scr");window.scrollTo(0,0)}
 function burst(x,y,n){if(RM)return;const cols=["#2fa58a","#f5a524","#ff6b6b","#5b9cff","#b57bee"];for(let k=0;k<n;k++){const e=document.createElement("i");e.className="cf";e.style.cssText="left:"+x+"px;top:"+y+"px;background:"+cols[k%5];document.body.appendChild(e);const a=Math.random()*6.28,d=60+Math.random()*130;e.animate([{transform:"translate(0,0) scale(1)",opacity:1},{transform:"translate("+Math.cos(a)*d+"px,"+(Math.sin(a)*d+70)+"px) rotate("+Math.random()*540+"deg) scale(.6)",opacity:0}],{duration:700+Math.random()*600,easing:"cubic-bezier(.2,.8,.3,1)"}).onfinish=()=>e.remove()}}
-const ICONS=["🧩","⏰","🔑","❓","🎯","⚖️","🔁","🔗","✨","📍","🔥","🧱","👆","🔧","🔀","⏳","📏"];
+const ICONS=["🧩","⏰","🔑","❓","🎯","⚖️","🔁","🔗","✨","📍","🔥","🧱","👆","🔧","🔀","⏳","📏","🔠","🎨","🔍","💬","🔢","🗨️"];
 CATS.forEach((c,k)=>{const b=document.createElement("button");b.className="chip tile";b.innerHTML="<i>"+ICONS[k]+"</i><span></span><em></em>";b.children[1].textContent=c;b.children[2].textContent=P.filter(p=>p[0]===k).length+"パターン";b.style.animationDelay=k*50+"ms";b.onclick=()=>{sel.has(k)?sel.delete(k):sel.add(k);b.classList.toggle("on");count()};$("chips").appendChild(b)});
 document.querySelectorAll("#modes .chip").forEach(b=>b.onclick=()=>{mode=b.dataset.m;document.querySelectorAll("#modes .chip").forEach(x=>x.classList.toggle("on",x===b));count()});
 count();
